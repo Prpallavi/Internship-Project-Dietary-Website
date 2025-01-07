@@ -1,0 +1,213 @@
+<html>
+<head>
+<title>diet</title>
+<style type="text/css">
+
+#slider,
+.wrap,
+.slide-content {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+.wrap {
+  position: relative;
+}
+
+.slide {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slide1 {
+  background-image: url("file:///C:/Users/NEW/Desktop/all/for web pics/strawberry.jpg");
+}
+.slide2 {
+  background-image: url("file:///C:/Users/NEW/Desktop/all/for web pics/pexels-photo-373941.jpeg");
+}
+.slide3 {
+  background-image: url("file:///C:/Users/NEW/Desktop/all/for web pics/photo-1476718406336-bb5a9690ee2a.jfif");
+}
+
+
+
+
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.slide-content span {
+  font-size: 5rem;
+  color:black;
+}
+
+.arrow {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  margin-top: -35px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+#arrow-left {
+  border-width: 30px 40px 30px 0;
+  border-color: transparent #fff transparent transparent;
+  left: 0;
+  margin-left: 30px;
+}
+
+#arrow-right {
+  border-width: 30px 0 30px 40px;
+  border-color: transparent transparent transparent #fff;
+  right: 0;
+  margin-right: 30px;
+}
+
+.container{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:#000;
+}
+
+.bmi
+{
+position:relative;
+text-align:center;
+width:200px;
+padding:45px;
+font-size:25px;
+color:black;
+font-family:poppins;
+font-weight:400;
+border:3px solid #15f4ee;
+text-transform:uppercase;
+letter-spacing:15px;
+cursor:pointer;
+border-radius:100px;
+transition:1.5s;
+}
+
+
+
+</style>
+</head>
+<body>
+<center>
+<h1>NUTRIMAX</h1>
+<h4>NutriMax website that offers credible information to help you make healthful eating choices.
+Discover hundreds of tasty, healthy, budget-friendly recipes for you and your family.
+Find strategies for successful weight loss, what you should know about popular diets, and more. 
+Keep your food fresh and prevent food waste using this free app from FoodSafety.com.
+Explore the history of dietary guidance and nutrition education.
+</h4>
+</center>
+
+
+<div class="wrap">
+  <div id="arrow-left" class="arrow"></div>
+  <div id="slider">
+    <div class="slide slide1">
+      <div class="slide-content">
+        <span>One must eat to live, not live to eat</span>
+      </div>
+    </div>
+    <div class="slide slide2">
+      <div class="slide-content">
+        <span>It takes five minutes to consume 500 calories. </span>
+      </div>
+    </div>
+ <div class="slide slide3">
+      <div class="slide-content">
+        <span>If you keep good food in your fridge, you will eat good food.</span>
+      </div>
+  </div>
+  <div id="arrow-right" class="arrow"></div>
+</div>
+<center><h1><a href="3.bmi.html"><button class="bmi">BMI</button></a>
+</h1></center>
+<center>
+<table>
+<tr>
+<td><img src="file:\\\C:\Users\NEW\Desktop\all\for web pics\download.png">
+<h1>Better time management</h1>
+<p>Create personalized nutritional plans faster...</p>
+</td>
+</tr>
+</table>
+</center>
+<center>
+<table>
+<tr>
+<td><img src="file:\\\C:\Users\NEW\Desktop\all\for web pics\download.jfif">
+<h1>Happier patients</h1>
+<p>Focus on your patients and keep them motivated to achieve their goals....</p></td><br/>
+</tr>
+</table>
+</center>
+<script>
+let sliderImages = document.querySelectorAll(".slide"),
+  arrowLeft = document.querySelector("#arrow-left"),
+  arrowRight = document.querySelector("#arrow-right"),
+  current = 0;
+
+// Clear all images
+function reset() {
+  for (let i = 0; i < sliderImages.length; i++) {
+    sliderImages[i].style.display = "none";
+  }
+}
+
+// Init slider
+function startSlide() {
+  reset();
+  sliderImages[0].style.display = "block";
+}
+
+// Show prev
+function slideLeft() {
+  reset();
+  sliderImages[current - 1].style.display = "block";
+  current--;
+}
+
+// Show next
+function slideRight() {
+  reset();
+  sliderImages[current + 1].style.display = "block";
+  current++;
+}
+
+// Left arrow click
+arrowLeft.addEventListener("click", function() {
+  if (current === 0) {
+    current = sliderImages.length;
+  }
+  slideLeft();
+});
+
+// Right arrow click
+arrowRight.addEventListener("click", function() {
+  if (current === sliderImages.length - 1) {
+    current = -1;
+  }
+  slideRight();
+});
+
+startSlide();
+
+</script>
+
+</body>
+</html>
