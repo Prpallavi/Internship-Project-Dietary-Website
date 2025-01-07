@@ -1,0 +1,170 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+*{
+ padding:0;
+margin:0;
+}
+
+body{
+  background:url("assets/cq.jpg") no-repeat;
+  background-size:cover;
+  align-items:center;
+  justify-content:center;
+  display:flex;
+  font-family:sans-serif;
+}
+
+.container{
+  position:relative;
+ margin-top:100px;
+  width:450px;
+  height:auto;
+  background:#dedede;
+  border-radius:5px;
+  background:rgba(0,0,0,0.3);
+ 
+}
+
+.label{
+   padding:20px 130px;
+   font-size:35px;
+   font-weight:bold;
+   color:white;
+}
+
+.login_form{
+  padding:20px 40px;
+}
+
+.login_form .font{
+  font-size:18px;
+  color:white;
+  margin:5px 0;
+}
+
+.login_form input{
+ border:0;
+  background:black;
+  display:block;
+  margin:20px auto;
+  text-align:center;
+  border:3px solid  #15f4ee;
+  padding:14px 10px;
+  width:220px;
+  outline:none;
+  color:white;
+  border-radius:24px;
+  transition:0.25px;
+  }
+
+.login_form .font2{
+    margin-top: 30px
+}
+
+
+.login_form button{
+  border:0;
+  background:black;
+  display:block;
+  position:relative;
+  margin:20px auto;
+  text-align:center;
+   font-family:poppins;
+   border:3px solid  #15f4ee;
+  text-transform:uppercase;
+  letter-spacing:5px;
+  padding:14px 35px;
+  outline:none;
+  color:#15f4ee;
+  border-radius:24px;
+  transition:0.25px;
+  cursor:pointer;
+}
+
+.login_form button:hover{
+box-shadow:0 5px 50px 0 #15f4ee inset, 0 5px 50px 0 #15f4ee;
+            0 5px 50px 0 #15f4ee inset, 0 5px 50px 0 #15f4ee;
+
+ 
+}
+.login_form #email_error,
+.login_form #pass_error{
+  margin-top:5px;
+  width:345px;
+  font-size:18px;
+  color:#C62828;
+  background:rgba(255,0,0,0.1);
+  text-align:center;
+  padding:5px 8px;
+  border-radius:3px;
+  border:1px solid #EF9A9A;
+ display:none;
+}
+</style>
+</head>
+<body>
+ <div class="container">
+<h1 class="label">User Login</h1>
+<form class="login_form" action="6.cbook.html" method="post" name="form" onsubmit="return validated()">
+<div class="font">Email or Phone</div>
+<input autocomplete="off" type="text"name="email">
+<div id="email_error">please fill up your Email or Phone</div>
+<div class="font font2">Password</div>
+<input type="password"name="password">
+<div id="pass_error">please fill up your password</div>
+<button type="submit">Login</button>
+
+</form>
+</div>
+
+<script>
+var email=document.forms['form']['email'];
+var password=document.forms['form']['password'];
+
+var email_error=document.getElementById('email_error');
+var pass_error=document.getElementById('pass_error');
+
+email.addEventListener('textinput',email_verify);
+password.addEventListener('textinput',pass_verify);
+
+function validated(){
+  if(email.value.length < 9) {
+  email.style.border="1px solid red";
+  email_error.style.display="block";
+  email.focus();
+  return false;
+}
+
+if(password.value.length < 6) {
+  password.style.border="1px solid red";
+  pass_error.style.display="block";
+  password.focus();
+  return false;
+  }
+
+}
+
+function email_verify(){
+  if(email.value.length >= 8){
+   email.style.border="1px solid silver";
+   email_error.style.display="none";
+   return true;
+   }
+
+}
+
+function email_verify(){
+  if(password.value.length >= 5){
+   password.style.border="1px solid silver";
+   pass_error.style.display="none";
+   return true;
+   }
+
+}
+
+
+</script>
+</body>
+</html>
